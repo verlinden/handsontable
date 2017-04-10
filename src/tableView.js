@@ -541,6 +541,30 @@ function TableView(instance) {
   this.wt = new Walkontable(walkontableConfig);
   this.activeWt = this.wt;
 
+  this.eventManager.addEventListener(instance.rootElement, 'wheel', (event) => {
+    event.preventDefault();
+
+    const lineHeight = parseInt(window.getComputedStyle(document.body)['font-size'], 10);
+    const holderX = this.wt.wtOverlays.topOverlay.holder;
+    const holderY = this.wt.wtOverlays.leftOverlay.holder;
+
+    switch (event.deltaMode) {
+      case 0:
+        holderX.scrollLeft += event.deltaX;
+        holderY.scrollTop += event.deltaY;
+        break;
+
+      case 1:
+        holderX.scrollLeft += event.deltaX * lineHeight;
+        holderY.scrollTop += event.deltaY * lineHeight;
+        break;
+
+      default:
+        break;
+    }
+
+  });
+
   this.eventManager.addEventListener(that.wt.wtTable.spreader, 'mousedown', function(event) {
     // right mouse button exactly on spreader means right click on the right hand side of vertical scrollbar
     if (event.target === that.wt.wtTable.spreader && event.which === 3) {

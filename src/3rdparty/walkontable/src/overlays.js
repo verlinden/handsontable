@@ -189,25 +189,14 @@ class Overlays {
 
     if (this.topOverlay.needFullRender) {
       listenersToRegister.push([this.topOverlay.clone.wtTable.holder, 'scroll', (event) => this.onTableScroll(event)]);
-      listenersToRegister.push([this.topOverlay.clone.wtTable.holder, 'wheel', (event) => this.onTableScroll(event)]);
     }
 
     if (this.bottomOverlay.needFullRender) {
       listenersToRegister.push([this.bottomOverlay.clone.wtTable.holder, 'scroll', (event) => this.onTableScroll(event)]);
-      listenersToRegister.push([this.bottomOverlay.clone.wtTable.holder, 'wheel', (event) => this.onTableScroll(event)]);
     }
 
     if (this.leftOverlay.needFullRender) {
       listenersToRegister.push([this.leftOverlay.clone.wtTable.holder, 'scroll', (event) => this.onTableScroll(event)]);
-      listenersToRegister.push([this.leftOverlay.clone.wtTable.holder, 'wheel', (event) => this.onTableScroll(event)]);
-    }
-
-    if (this.topLeftCornerOverlay && this.topLeftCornerOverlay.needFullRender) {
-      listenersToRegister.push([this.topLeftCornerOverlay.clone.wtTable.holder, 'wheel', (event) => this.onTableScroll(event)]);
-    }
-
-    if (this.bottomLeftCornerOverlay && this.bottomLeftCornerOverlay.needFullRender) {
-      listenersToRegister.push([this.bottomLeftCornerOverlay.clone.wtTable.holder, 'wheel', (event) => this.onTableScroll(event)]);
     }
 
     if (this.topOverlay.trimmingContainer !== window && this.leftOverlay.trimmingContainer !== window) {
