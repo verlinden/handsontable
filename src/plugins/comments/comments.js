@@ -409,6 +409,12 @@ class Comments extends BasePlugin {
     let x = cellLeftOffset + lastColWidth;
     let y = cellTopOffset;
 
+    // VS fix
+    // Open Editor on the left if there is no more available space on the right
+    if (x + 215 > window.innerWidth) {
+      x = x - lastColWidth - 215;
+    }
+
     const commentStyle = this.getCommentMeta(row, column, META_STYLE);
     const readOnly = this.getCommentMeta(row, column, META_READONLY);
 

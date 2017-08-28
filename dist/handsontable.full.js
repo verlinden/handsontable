@@ -24,7 +24,7 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  * 
  * Version: 0.33.0
- * Date: Mon Aug 28 2017 10:44:30 GMT+0200 (CEST)
+ * Date: Mon Aug 28 2017 15:19:35 GMT+0200 (CEST)
  */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
@@ -36497,7 +36497,7 @@ Handsontable.DefaultSettings = _defaultSettings2.default;
 Handsontable.EventManager = _eventManager2.default;
 Handsontable._getListenersCounter = _eventManager.getListenersCounter; // For MemoryLeak tests
 
-Handsontable.buildDate = "2017-08-28T08:44:30.824Z";
+Handsontable.buildDate = "2017-08-28T13:19:35.983Z";
 Handsontable.packageName = "handsontable";
 Handsontable.version = "0.33.0";
 
@@ -40417,6 +40417,12 @@ var Comments = function (_BasePlugin) {
 
       var x = cellLeftOffset + lastColWidth;
       var y = cellTopOffset;
+
+      // VS fix
+      // Open Editor on the left if there is no more available space on the right
+      if (x + 215 > window.innerWidth) {
+        x = x - lastColWidth - 215;
+      }
 
       var commentStyle = this.getCommentMeta(row, column, META_STYLE);
       var readOnly = this.getCommentMeta(row, column, META_READONLY);
