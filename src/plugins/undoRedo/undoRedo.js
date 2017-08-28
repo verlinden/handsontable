@@ -37,7 +37,7 @@ function UndoRedo(instance) {
   });
 
   instance.addHook('afterCreateRow', (index, amount, source) => {
-    if (this.excludedSources.indexOf(source) === -1) {
+    if (this.excludedSources.indexOf(source) !== -1) {
       return;
     }
 
@@ -46,7 +46,7 @@ function UndoRedo(instance) {
   });
 
   instance.addHook('beforeRemoveRow', (index, amount, logicRows, source) => {
-    if (this.excludedSources.indexOf(source) === -1) {
+    if (this.excludedSources.indexOf(source) !== -1) {
       return;
     }
 
@@ -60,7 +60,7 @@ function UndoRedo(instance) {
   });
 
   instance.addHook('afterCreateCol', (index, amount, source) => {
-    if (this.excludedSources.indexOf(source) === -1) {
+    if (this.excludedSources.indexOf(source) !== -1) {
       return;
     }
 
@@ -68,7 +68,7 @@ function UndoRedo(instance) {
   });
 
   instance.addHook('beforeRemoveCol', (index, amount, logicColumns, source) => {
-    if (this.excludedSources.indexOf(source) === -1) {
+    if (this.excludedSources.indexOf(source) !== -1) {
       return;
     }
 
