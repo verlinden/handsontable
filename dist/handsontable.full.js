@@ -24,7 +24,7 @@
  * SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  * 
  * Version: 0.33.0
- * Date: Tue Aug 01 2017 11:34:43 GMT+0200 (CEST)
+ * Date: Mon Aug 28 2017 10:44:30 GMT+0200 (CEST)
  */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
@@ -36497,7 +36497,7 @@ Handsontable.DefaultSettings = _defaultSettings2.default;
 Handsontable.EventManager = _eventManager2.default;
 Handsontable._getListenersCounter = _eventManager.getListenersCounter; // For MemoryLeak tests
 
-Handsontable.buildDate = "2017-08-01T09:34:43.948Z";
+Handsontable.buildDate = "2017-08-28T08:44:30.824Z";
 Handsontable.packageName = "handsontable";
 Handsontable.version = "0.33.0";
 
@@ -51117,7 +51117,7 @@ function UndoRedo(instance) {
   });
 
   instance.addHook('afterCreateRow', function (index, amount, source) {
-    if (_this.excludedSources.indexOf(source) === -1) {
+    if (_this.excludedSources.indexOf(source) !== -1) {
       return;
     }
 
@@ -51126,7 +51126,7 @@ function UndoRedo(instance) {
   });
 
   instance.addHook('beforeRemoveRow', function (index, amount, logicRows, source) {
-    if (_this.excludedSources.indexOf(source) === -1) {
+    if (_this.excludedSources.indexOf(source) !== -1) {
       return;
     }
 
@@ -51140,7 +51140,7 @@ function UndoRedo(instance) {
   });
 
   instance.addHook('afterCreateCol', function (index, amount, source) {
-    if (_this.excludedSources.indexOf(source) === -1) {
+    if (_this.excludedSources.indexOf(source) !== -1) {
       return;
     }
 
@@ -51148,7 +51148,7 @@ function UndoRedo(instance) {
   });
 
   instance.addHook('beforeRemoveCol', function (index, amount, logicColumns, source) {
-    if (_this.excludedSources.indexOf(source) === -1) {
+    if (_this.excludedSources.indexOf(source) !== -1) {
       return;
     }
 
@@ -51207,7 +51207,6 @@ function UndoRedo(instance) {
 };
 
 UndoRedo.prototype.addExcludedSource = function (source) {
-  console.log('addExcludedSource');
   this.excludedSources.push(source);
 };
 
